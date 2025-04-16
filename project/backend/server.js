@@ -21,9 +21,12 @@ app.use(cors({
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 connectDB();
+
+
 const savedRoutes = require('./routes/saved');
 app.use('/api/saved', savedRoutes);
 
+app.get("/", (req, res) => res.send("Congratulation 🎉🎉! Our Express server is Running on Vercel"));
 app.use("/api/auth", authRoutes);
 app.use("/api/images", imageRoutes);
 app.use("/api/albums", albumRoutes);
